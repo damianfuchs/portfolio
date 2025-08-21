@@ -7,15 +7,16 @@
 }
 
 header {
-  background-color: rgb(16, 25, 35);
+  background-color: rgb(23, 23, 23);
   height: 70px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.300);
+  
 }
 
 main {
-    background-color: rgb(16, 25, 35);
+    background-color: rgb(23, 23, 23);
     height: 100vh;
     
 }
@@ -27,6 +28,7 @@ nav {
   display: flex;
   align-items: center;
   padding: 0 2rem;
+
 }
 
 .logo-container {
@@ -68,37 +70,114 @@ nav {
 
 /* INICIO */
 main .inicio {
-  padding: 70px 0 20px;
+  padding: 100px 20px 20px 20px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
-main .inicio h1 {
-  display: inline-block;        /* Permite animar width */
-  font-size: 25px;
+.inicio .hola {
+  font-size: 42px;
   color: white;
-  font-weight: 300;
+  font-weight: 700;
+  padding: 0;
+  margin-bottom: 2px;
+}
+
+.inicio .nombre {
+  font-size: 34px;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1abc9c;
+
+}
+
+main .inicio h3 {
+  display: inline-block;        /* Permite animar width */
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.651);
+  font-weight: 400;
   letter-spacing: 2px;
+
 
   overflow: hidden;             /* Oculta el texto no escrito */
   white-space: nowrap;          /* Una sola línea */
   border-right: 0.15em solid orange;
-  
   width: 0ch;                   /* Comienza con ancho 0 caracteres */
-  animation: 
-    typing 3.5s steps(45, end) forwards,  /* Ajusta steps al número de caracteres */
-    blink-caret 0.75s step-end infinite;
+  animation: typing 7s steps(32, end) infinite,
+             blink-caret .75s step-end infinite;
 }
 
 /* Animación de escritura */
 @keyframes typing {
-  to { width: 30ch; }           /* Igual al número de caracteres de tu texto */
+  0%   { width: 0ch; }
+  40%  { width: 32ch; }  /* Se escribe */
+  70%  { width: 32ch; }  /* Se queda quieto (3s aprox en 8s) */
+  100% { width: 0ch; }   /* Se borra */    /* Se borra */         /* Igual al número de caracteres de tu texto */
 }
 
 /* Cursor parpadeante */
 @keyframes blink-caret {
   from, to { border-color: transparent; }
-  50% { border-color: orange; }
+  50% { border-color: #1abc9c; }
+}
+
+.inicio img {
+  width: 280px;         /* Ajustá el tamaño que quieras */
+  height: 280px;        /* Igual al width para que sea perfectamente redonda */
+  object-fit: cover;    /* Para que no se deforme la foto */
+  border-radius: 50%;   /* Esto la hace circular */
+  border: 15px solid rgb(32, 32, 32); /* Borde gris (podés cambiar el grosor o color) */
+  display: block;       /* Para centrar con margin si querés */
+  margin: 30px auto;    /* Centrado horizontal */
+}
+
+.inicio .descargar-cv{
+  background-color: rgb(32, 32, 32);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  border: 1px solid #1abc9c;
+  letter-spacing: 2px;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.inicio .descargar-cv:hover{
+  background-color: #1abc9c;
+  transition: background-color 0.8s ease;
+  color: rgb(32, 32, 32);
 }
 
 
+/* SOBRE MI */
+main .sobremi {
+  padding: 100px 20px 20px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+
+.sobremi h1{
+  font-size: 34px;
+  color: white;
+  font-weight: 400;
+  margin-bottom: 20px;
+
+}
+
+.sobremi p {
+  font-size: 16px;
+  color: white;
+  font-weight: 400;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto;
+}
