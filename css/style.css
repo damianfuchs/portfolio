@@ -2,6 +2,7 @@
   --color-principal: #1abc9c;
   --color-fondo: #1a1a1a;
   --color-texto: white;
+  --color-linea: rgba(255, 255, 255, 0.3);
 }
 
 * {
@@ -85,7 +86,7 @@ nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 45px;
 }
 
 .inicio .hola {
@@ -228,15 +229,25 @@ main .inicio h3 {
   /* efecto zoom */
 }
 
+.linea {
+  display: flex;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 1100px; /* Ancho máximo en pantallas grandes */
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* opcional */
+}
 
 
 /* SOBRE MI */
-main .sobremi {
-  padding: 90px 20px 20px 20px;
+.sobremi {
+  padding: 20px 20px 20px 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 55px;
 }
 
 .lenguaje {
@@ -250,7 +261,7 @@ main .sobremi {
   font-size: 34px;
   color: var(--color-principal);
   font-weight: 600;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .sobremi p {
@@ -258,7 +269,7 @@ main .sobremi {
   color: white;
   font-weight: 400;
   line-height: 1.5;
-  max-width: 800px;
+  max-width: 1100px;
 
   margin-bottom: 40px;
 }
@@ -266,12 +277,12 @@ main .sobremi {
 
 .sobremi .titulo-habilidades {
 
-  font-size: 28px;
+  font-size: 20px;
   display: inline-block;
   color: var(--color-principal);
   font-weight: 400;
   padding-top: 25px;
-  border-bottom: 1px solid var(--color-principal);
+
 }
 
 .tarjetas-habilidades {
@@ -283,7 +294,7 @@ main .sobremi {
 }
 
 .tarjeta {
-  border: 1px solid var(--color-principal);
+  border: 1px solid var(--color-linea);
   border-radius: 10px;
   padding: 20px;
   height: 280px;
@@ -301,7 +312,7 @@ main .sobremi {
   letter-spacing: 2px;
   font-weight: 400;
   padding-bottom: 2px;
-  border-bottom: 1px solid var(--color-principal);
+
 
 }
 
@@ -313,15 +324,7 @@ main .sobremi {
   margin-top: 15px;
 }
 
-.iconos-habilidades img {
-  width: 50px;
-  /* ancho de cada icono */
-  height: 70px;
-  /* altura */
-  object-fit: contain;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-  cursor: pointer;
-}
+
 
 .iconos-habilidades img:hover {
   transform: scale(1.2); /* efecto al pasar el mouse */
@@ -329,10 +332,24 @@ main .sobremi {
 }
 
 
+.icono {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.75rem; /* texto chiquito */
+  color: #ffffff; /* o el color que combine con tu diseño */
+  text-align: center;
+}
+
+.icono img {
+  width: 50px; /* o el tamaño que quieras para los íconos */
+  height: 50px;
+}
+
 /* PROYECTOS */
 
 .proyectos {
-  padding: 150px 20px 20px;
+  padding: 60px 20px 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -343,7 +360,7 @@ main .sobremi {
   font-size: 34px;
   color: var(--color-principal);
   font-weight: 600;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .contenedor-proyectos {
@@ -437,3 +454,138 @@ main .sobremi {
 }
 
 
+
+
+
+
+
+.tarjeta-horizontal {
+  display: flex;
+  max-width: 1100px;
+  height: 350px;
+  margin: 15px auto;
+  padding: 30px;
+  background-color: var(--color-fondo);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  gap: 30px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.tarjeta-horizontal .contenido {
+  flex: 1 1 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+   text-align: left;
+}
+
+.tarjeta-horizontal .titulo {
+  font-size: 30px;
+  font-weight:400;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.tarjeta-horizontal .descripcion {
+  font-size: 1rem;
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 20px;
+
+  max-height: 100px; /* límite de altura */
+  overflow-y: auto;  /* activa scroll solo si se pasa */
+  padding-right: 8px; /* espacio para que no tape el texto */
+}
+
+.tarjeta-horizontal .techs {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tarjeta-horizontal .techs img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.tarjeta-horizontal .techs img:hover {
+  transform: scale(1.1);
+}
+
+.tarjeta-horizontal .imagen {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.tarjeta-horizontal .imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 0 12px var(--color-principal);
+}
+
+
+.tarjeta-horizontal a {
+  display: inline-block;
+  padding: 8px 30px;
+  background-color: var(--color-fondo);
+  border: 1px solid var(--color-principal);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: fit-content;
+}
+
+.tarjeta-horizontal a:hover {
+  background-color: var(--color-principal);
+  color: black;
+  border: 1px solid var(--color-principal);
+  transform: translateY(-2px);
+}
+
+
+.tarjeta-horizontal.invertida {
+  flex-direction: row-reverse;
+  text-align: left; /* mantenemos el texto alineado a la izquierda */
+}
+
+@media (max-width: 768px) {
+  .tarjeta-horizontal.invertida {
+    flex-direction: column;
+  }
+  .tarjeta-horizontal.invertida .imagen {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .tarjeta-horizontal {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+  }
+
+  .tarjeta-horizontal .imagen {
+    order: -1;
+  }
+
+  .tarjeta-horizontal .imagen img {
+    height: auto;
+    max-height: 250px;
+  }
+  
+}
