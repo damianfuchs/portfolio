@@ -1,6 +1,6 @@
 :root {
   --color-principal: #1abc9c;
-  --color-fondo: #1a1a1a;
+  --color-fondo: rgb(23, 23, 23);
   --color-texto: white;
   --color-linea: rgba(255, 255, 255, 0.3);
 }
@@ -79,155 +79,206 @@ nav {
 }
 
 
-/* INICIO */
+
+/* ====== SECCIÓN PRINCIPAL ====== */
 .inicio {
-  padding: 100px 20px 20px 20px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200px 50px;
+  gap: 30px;
+  background: var(--color-fondo);
+  color: white;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* permite que se ajusten elementos en pantallas pequeñas */
+}
+
+/* ====== TEXTO ====== */
+.contenido-texto {
+  flex: 1;
+  min-width: 280px; /* para que no se achique demasiado */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin-bottom: 45px;
+  align-items: flex-start;
+  gap: 15px;
 }
 
-.inicio .hola {
-  font-size: 42px;
-  color: white;
-  font-weight: 700;
-  padding: 0;
-  margin-bottom: 2px;
+.subtitulo {
+  font-size: 28px;
+  color: #aaa;
+  font-weight: 500;
+  margin-bottom: 0;
 }
 
-.inicio .nombre {
-  font-size: 34px;
-  color: white;
+.nombre {
+  font-size: 55px;
   font-weight: 700;
-  margin-bottom: 20px;
   color: var(--color-principal);
-
+  margin: 0;
 }
 
-main .inicio h3 {
-  display: inline-block;
-  /* Permite animar width */
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.651);
-  font-weight: 400;
-  letter-spacing: 2px;
-
-
-  overflow: hidden;
-  /* Oculta el texto no escrito */
-  white-space: nowrap;
-  /* Una sola línea */
-  border-right: 0.15em solid orange;
-  width: 0ch;
-  /* Comienza con ancho 0 caracteres */
-  animation: typing 7s steps(32, end) infinite,
-    blink-caret .75s step-end infinite;
-}
-
-/* Animación de escritura */
-@keyframes typing {
-  0% {
-    width: 0ch;
-  }
-
-  40% {
-    width: 32ch;
-  }
-
-  /* Se escribe */
-  70% {
-    width: 32ch;
-  }
-
-  /* Se queda quieto (3s aprox en 8s) */
-  100% {
-    width: 0ch;
-  }
-
-  /* Se borra */
-  /* Se borra */
-  /* Igual al número de caracteres de tu texto */
-}
-
-/* Cursor parpadeante */
-@keyframes blink-caret {
-
-  from,
-  to {
-    border-color: transparent;
-  }
-
-  50% {
-    border-color: var(--color-principal);
-  }
-}
-
-.inicio img {
-  width: 280px;
-  /* Ajustá el tamaño que quieras */
-  height: 280px;
-  /* Igual al width para que sea perfectamente redonda */
-  object-fit: cover;
-  /* Para que no se deforme la foto */
-  border-radius: 50%;
-  /* Esto la hace circular */
-  border: 15px solid rgb(32, 32, 32);
-  /* Borde gris (podés cambiar el grosor o color) */
-  display: block;
-  /* Para centrar con margin si querés */
-  margin: 30px auto;
-  /* Centrado horizontal */
-  transition: transform 0.3s ease;
-  /* transición suave */
-}
-
-.inicio img:hover {
-  transform: scale(1.04);
-  /* zoom del 4% */
-}
-
-.inicio .descargar-cv {
-  background-color: rgb(32, 32, 32);
+/* Animación de máquina de escribir */
+.titulo {
+  font-size: 22px;
+  font-weight: 600;
   color: white;
-  padding: 8px 14px;
-  border-radius: 5px;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.titulo span {
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typeSmooth 10s linear infinite;
+}
+
+.titulo span::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: #00e0ff;
+  margin-left: 2px;
+  vertical-align: bottom;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes typeSmooth {
+  0%   { width: 0; }
+  30%  { width: 100%; }
+  60%  { width: 100%; }
+  100% { width: 0; }
+}
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75%      { opacity: 0; }
+}
+
+/* ====== BOTÓN ====== */
+.descargar-cv {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--color-principal);
+  color: var(--color-fondo);
+  border-radius: 8px;
+  font-weight: 500;
   text-decoration: none;
-  transition: background-color 0.3s ease;
-  border: 1px solid var(--color-principal);
-  letter-spacing: 2px;
-  font-size: 14px;
-  margin-top: 15px;
+  transition: 0.3s;
+  margin-top: 10px;
 }
 
-.inicio .descargar-cv:hover {
-  background-color: #1abc9c;
-  transition: background-color 0.8s ease;
-  color: rgb(32, 32, 32);
+.descargar-cv:hover {
+  transform: translateY(-3px);
+  background-color: white;
+  color: var(--color-principal);
 }
 
-.inicio .redes {
+/* ====== REDES ====== */
+.redes {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  padding-left: 0;
+  margin-top: 20px;
+}
+
+.redes li a {
+  font-size: 28px;
+  color: var(--color-principal);
+  transition: 0.3s;
+}
+
+.redes li a:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+/* ====== IMAGEN ====== */
+.contenido-imagen {
+  flex: 1;
+  min-width: 280px;
   display: flex;
   justify-content: center;
-  gap: 20px;
-  margin-top: 40px;
-  list-style: none;
 }
 
-.redes a {
-  font-size: 30px;
-  /* tamaño del ícono */
-  color: white;
-  transition: transform 0.3s, color 0.3s;
+.marco-imagen {
+  background: var(--color-principal);
+  padding: 8px;
+  border-radius: 15px;
+  box-shadow: 0 0 12px var(--color-principal);
 }
 
-.redes a:hover {
-  color: var(--color-principal);
-  /* cambia color en hover */
-  transform: scale(1.2);
-  /* efecto zoom */
+.marco-imagen img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
 }
+
+/* ====== RESPONSIVE ====== */
+/* Tablets / iPad */
+@media (max-width: 1024px) {
+  .inicio {
+    flex-direction: column;
+    align-items: center;      /* centra todo horizontalmente */
+    text-align: center;
+    padding: 100px 40px;
+    gap: 20px;
+  }
+
+  .contenido-texto {
+    align-items: center;      /* centra los textos y botón */
+  }
+
+  .marco-imagen img {
+    width: 220px;
+    height: 220px;
+  }
+
+  .titulo { font-size: 20px; }
+  .subtitulo { font-size: 24px; }
+  .nombre { font-size: 45px; }
+
+  .redes { justify-content: center; gap: 12px; }
+}
+
+/* Móviles */
+@media (max-width: 480px) {
+  .inicio {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px 180px 20px;
+    gap: 15px;
+  }
+
+  .contenido-texto {
+    align-items: center;
+  }
+
+  .subtitulo { font-size: 20px; }
+  .nombre { font-size: 36px; }
+  .titulo { font-size: 15px; }
+
+  .marco-imagen img {
+    width: 200px;
+    height: 200px;
+  }
+
+
+  .descargar-cv { padding: 12px 20px; }
+
+  .redes { justify-content: center; gap: 10px; padding-bottom: 22px; }
+}
+
+
 
 .linea {
   display: flex;
@@ -270,7 +321,7 @@ main .inicio h3 {
   font-weight: 400;
   line-height: 1.5;
   max-width: 1100px;
-
+  text-align: justify;
   margin-bottom: 40px;
 }
 
@@ -346,7 +397,7 @@ main .inicio h3 {
   height: 50px;
 }
 
-/* PROYECTOS */
+/* ---------------- PROYECTOS ---------------- */
 
 .proyectos {
   padding: 60px 20px 20px;
@@ -374,8 +425,9 @@ main .inicio h3 {
   padding: 20px;
 }
 
+/* Tarjetas verticales */
 .tarjeta-proyecto {
-  flex: 1 1 calc(33.333% - 15px); /* 3 por fila, restando el gap */
+  flex: 1 1 calc(33.333% - 15px);
   border: 1px solid var(--color-principal);
   border-radius: 6px;
   background-color: #1a1a1a;
@@ -404,6 +456,7 @@ main .inicio h3 {
   margin-bottom: 8px;
   color: #00d1b2;
   font-weight: 500;
+  word-wrap: break-word; /* asegura que los textos largos se ajusten */
 }
 
 .tarjeta-proyecto p {
@@ -420,48 +473,37 @@ main .inicio h3 {
   margin-top: 10px;
   border-radius: 5px;
   font-weight: 500;
-  transition: background-color 0.3s;
 }
 
 .tarjeta-proyecto a:hover {
   background-color: #00f5c2;
 }
 
-
-.tecnologias img{
+.tecnologias img {
   width: 40px;
   height: 40px;
   margin-top: 25px;
 }
 
-
-
-
-
-
-/* Responsive: en tablets se muestran 2 por fila */
-@media (max-width: 768px) {
+/* ---------------- RESPONSIVE TARJETAS VERTICALES ---------------- */
+@media (max-width: 1024px) {
   .tarjeta-proyecto {
     flex: 1 1 calc(50% - 15px);
   }
 }
 
-/* Responsive: en móviles se muestra 1 por fila */
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .tarjeta-proyecto {
     flex: 1 1 100%;
   }
 }
 
-
-
-
-
-
-
-.tarjeta-horizontal {
+/* ---------------- TARJETAS HORIZONTALES ---------------- */
+.tarjeta-horizontal,
+.tarjeta-horizontal.invertida {
   display: flex;
   max-width: 1100px;
+  width: 100%;
   height: 350px;
   margin: 15px auto;
   padding: 30px;
@@ -472,21 +514,51 @@ main .inicio h3 {
   gap: 30px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.3);
+  box-sizing: border-box;
 }
 
-.tarjeta-horizontal .contenido {
+.tarjeta-horizontal.invertida {
+  flex-direction: row-reverse;
+  text-align: left;
+}
+
+/* Contenido e imagen */
+.tarjeta-horizontal .contenido,
+.tarjeta-horizontal.invertida .contenido {
   flex: 1 1 60%;
+  max-width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-   text-align: left;
+  text-align: left;
+}
+
+.tarjeta-horizontal .imagen,
+.tarjeta-horizontal.invertida .imagen {
+  flex: 1 1 40%;
+  max-width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.tarjeta-horizontal .imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+  
 }
 
 .tarjeta-horizontal .titulo {
   font-size: 30px;
-  font-weight:400;
+  font-weight: 400;
   margin-bottom: 20px;
   color: white;
+  word-wrap: break-word; /* rompe palabras largas */
+  white-space: normal;   /* asegura saltos de línea */
 }
 
 .tarjeta-horizontal .descripcion {
@@ -494,10 +566,10 @@ main .inicio h3 {
   color: #ccc;
   line-height: 1.6;
   margin-bottom: 20px;
-
-  max-height: 100px; /* límite de altura */
-  overflow-y: auto;  /* activa scroll solo si se pasa */
-  padding-right: 8px; /* espacio para que no tape el texto */
+  text-align: justify;
+  max-height: none;      /* quita límite de altura */
+  overflow: visible;     /* deja ver todo el texto */
+  padding-right: 0;
 }
 
 .tarjeta-horizontal .techs {
@@ -517,24 +589,6 @@ main .inicio h3 {
   transform: scale(1.1);
 }
 
-.tarjeta-horizontal .imagen {
-  flex: 1 1 40%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-.tarjeta-horizontal .imagen img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: 0 0 12px var(--color-principal);
-}
-
-
 .tarjeta-horizontal a {
   display: inline-block;
   padding: 8px 30px;
@@ -553,39 +607,46 @@ main .inicio h3 {
 .tarjeta-horizontal a:hover {
   background-color: var(--color-principal);
   color: black;
-  border: 1px solid var(--color-principal);
   transform: translateY(-2px);
 }
 
-
-.tarjeta-horizontal.invertida {
-  flex-direction: row-reverse;
-  text-align: left; /* mantenemos el texto alineado a la izquierda */
-}
-
-@media (max-width: 768px) {
+/* ---------------- RESPONSIVE TARJETAS HORIZONTALES ---------------- */
+@media (max-width: 1024px) {
+  .tarjeta-horizontal,
   .tarjeta-horizontal.invertida {
-    flex-direction: column;
-  }
-  .tarjeta-horizontal.invertida .imagen {
-    order: -1;
-  }
-}
-
-@media (max-width: 768px) {
-  .tarjeta-horizontal {
     flex-direction: column;
     height: auto;
     text-align: center;
   }
 
-  .tarjeta-horizontal .imagen {
+  .tarjeta-horizontal .imagen,
+  .tarjeta-horizontal.invertida .imagen {
     order: -1;
-  }
-
-  .tarjeta-horizontal .imagen img {
-    height: auto;
+    width: 100%;
+    max-width: 100%;
     max-height: 250px;
   }
-  
+
+  .tarjeta-horizontal .contenido,
+  .tarjeta-horizontal.invertida .contenido {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .tarjeta-horizontal .titulo,
+  .tarjeta-horizontal.invertida .titulo {
+    font-size: 22px; /* más pequeño pero visible */
+  }
+}
+
+@media (max-width: 600px) {
+  .tarjeta-horizontal .titulo,
+  .tarjeta-horizontal.invertida .titulo {
+    font-size: 18px; /* aún más chico en móvil */
+  }
+
+  .tarjeta-horizontal .descripcion {
+    font-size: 0.9rem; /* texto un poco más compacto */
+  }
 }
