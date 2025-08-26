@@ -183,8 +183,8 @@ nav {
 .redes {
   list-style: none;
   display: flex;
-  gap: 15px;
-  padding-left: 0;
+  gap: 25px;
+  padding-left: 1px;
   margin-top: 20px;
 }
 
@@ -246,7 +246,7 @@ nav {
   .subtitulo { font-size: 24px; }
   .nombre { font-size: 45px; }
 
-  .redes { justify-content: center; gap: 12px; }
+  .redes { justify-content: center; gap: 30px; }
 }
 
 /* Móviles */
@@ -275,7 +275,7 @@ nav {
 
   .descargar-cv { padding: 12px 20px; }
 
-  .redes { justify-content: center; gap: 10px; padding-bottom: 22px; }
+  .redes { justify-content: center; gap: 30px; padding-bottom: 22px; }
 }
 
 
@@ -649,4 +649,136 @@ nav {
   .tarjeta-horizontal .descripcion {
     font-size: 0.9rem; /* texto un poco más compacto */
   }
+}
+
+
+
+.linea-ultima {
+  display: flex;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 1100px; /* Ancho máximo en pantallas grandes */
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* opcional */
+  margin-top: 100px;
+}
+
+
+/* CONTACTO*/
+.contacto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 50px;
+  gap: 30px;
+  background: var(--color-fondo);
+  color: white;
+  max-width: 1100px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.contacto .subtitulo {
+  font-size: 25px;
+  font-weight: 400;
+  text-align: center;
+  color: white;
+}
+
+/* Botón WhatsApp */
+.contacto .wspp {
+  display: inline-block;
+  padding: 12px 20px;
+  background: var(--color-fondo);
+  color: var(--color-principal);
+  border-radius: 8px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: 0.3s;
+  margin-top: 10px;
+  border: 1px solid var(--color-principal);
+}
+
+.contacto a {
+  display: inline-block;
+  padding: 12px 20px;
+  background: var(--color-fondo);
+  color: white;
+  border-radius: 8px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-decoration: none;
+  transition: 0.3s;
+  margin-top: 10px;
+  border: 1px solid var(--color-principal);
+  font-size: 18px;
+}
+
+.contacto p{
+  font-size: 18px;
+}
+
+.contacto a:hover,
+.contacto .wspp:hover {
+  background: var(--color-principal);
+  color: var(--color-fondo);
+}
+
+.contacto .info {
+  margin: 0;
+}
+
+/* 📱 RESPONSIVIDAD */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .contacto {
+    padding: 60px 30px; /* menos padding */
+    gap: 20px;
+  }
+
+  .contacto .subtitulo {
+    font-size: 22px; /* un poco más chico */
+  }
+
+  .contacto a,
+  .contacto .wspp {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+  .contacto {
+    padding: 40px 20px; /* aún menos padding */
+  }
+
+  .contacto .subtitulo {
+    font-size: 20px;
+  }
+
+  .contacto a,
+  .contacto .wspp {
+    width: 100%; /* ocupan todo el ancho */
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+
+
+
+/* FOOTER */
+
+
+footer{
+  padding: 22px 0;
+  background: var(--color-fondo);
+  color: white;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
 }
