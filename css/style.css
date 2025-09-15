@@ -556,7 +556,7 @@ nav {
   font-size: 30px;
   font-weight: 400;
   margin-bottom: 20px;
-  color: white;
+  color: var(--color-principal);
   word-wrap: break-word; /* rompe palabras largas */
   white-space: normal;   /* asegura saltos de línea */
 }
